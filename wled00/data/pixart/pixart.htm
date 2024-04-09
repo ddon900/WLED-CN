@@ -24,39 +24,39 @@
               <rect style="fill:#003FFF" x="18" y="10" width="4" height="8"/>
               <rect style="fill:#003FFF" x="22" y="6" width="8" height="4"/>
             </svg>
-            WLED Pixel Art Converter
+            WLED 像素转换
           </h1>
         </div>
-        <h2>Convert image to WLED JSON (pixel art on WLED matrix)</h2>
+        <h2>把图像转换为 WLED JSON ( WLED像素矩阵)</h2>
         <p>
           <table id="fieldTable"  style="width: 100%; table-layout: fixed; align-content: center;">
             <tr>
               <td style="vertical-align: middle;">
-                <label for="ledSetupSelector">Led setup:</label>
+                <label for="ledSetupSelector">Led 设置:</label>
               </td>
               <td class="adaptiveTD">
                 <select id="ledSetupSelector" class="mainSelector">
                   <option value="matrix" selected>2D Matrix</option>
-                  <option value="r2l">Serpentine, first row right to left &lt;-</option>
-                  <option value="l2r">Serpentine, first row left to right -&gt;</option>
+                  <option value="r2l">S型排列，从右面第一排开始 &lt;-</option>
+                  <option value="l2r">S型排列，从左面第一排开始 -&gt;</option>
                 </select>
               </td>
             </tr>        
             <tr>
               <td style="vertical-align: middle;">
-                <label for="formatSelector">Output format:</label>
+                <label for="formatSelector">输出格式:</label>
               </td>
               <td class="adaptiveTD">
                 <select id="formatSelector" class="mainSelector">
                   <option value="wled" selected>WLED JSON</option>
                   <option value="curl">CURL</option>
-                  <option value="ha">Home Assistant YAML</option>
+                  <option value="ha">智能家居</option>
                 </select>
               </td>
             </tr>        
             <tr>
               <td style="vertical-align: middle;">
-                <label for="colorFormatSelector">Color code format:</label>
+                <label for="colorFormatSelector">颜色代码格式:</label>
               </td>
               <td class="adaptiveTD">
                 <select id="colorFormatSelector" class="mainSelector">
@@ -67,19 +67,19 @@
             </tr>
             <tr>
               <td style="vertical-align: middle;">
-                <label for="addressingSelector">Addressing:</label>
+                <label for="addressingSelector">致辞:</label>
               </td>
               <td class="adaptiveTD">
                 <select id="addressingSelector" class="mainSelector">
-                  <option value="hybrid" selected>Hybrid (&quot;f0f0f0&quot;,10, 17, &quot;f4f4f4&quot;)</option>
-                  <option value="range">Range (10, 17, &quot;f4f4f4&quot;)</option>
-                  <option value="single">Single (&quot;f4f4f4&quot;)</option>
+                  <option value="hybrid" selected>混合 (&quot;f0f0f0&quot;,10, 17, &quot;f4f4f4&quot;)</option>
+                  <option value="range">范围 (10, 17, &quot;f4f4f4&quot;)</option>
+                  <option value="single">单一  (&quot;f4f4f4&quot;)</option>
                 </select>
               </td>
             </tr>
             <tr>
               <td style="vertical-align: middle;">
-                <label for="brightnessNumber">Brightness:</label>
+                <label for="brightnessNumber">亮度:</label>
               </td>
               <td style="vertical-align: middle; display: flex; align-items: center;">
                 <input type="range" id="brightnessNumber" min="1" max="255" value="128">
@@ -88,7 +88,7 @@
             </tr>
             <tr>
               <td style="vertical-align: middle;">
-                <label for="colorLimitNumber">Max no of colors/JSON:</label>
+                <label for="colorLimitNumber">颜色最大值/JSON:</label>
               </td>
               <td style="vertical-align: middle; display: flex; align-items: center;">
                 <input type="range" id="colorLimitNumber" min="1" max="512" value="256">
@@ -97,7 +97,7 @@
             </tr>
             <tr class="ha-hide">
               <td style="vertical-align: middle;">
-                <label for="haID">HA Device ID:</label>
+                <label for="haID">设备 ID:</label>
               </td>
               <td class="adaptiveTD">
                 <input class="fullTextField" type="text" id="haID" value="pixel_art_controller_001">
@@ -105,7 +105,7 @@
             </tr>
             <tr class="ha-hide">
               <td style="vertical-align: middle;">
-                <label for="haUID">HA Device Unique ID:</label>
+                <label for="haUID">设备唯一ID:</label>
               </td>
               <td class="adaptiveTD">
                 <input class="fullTextField" type="text" id="haUID" value="pixel_art_controller_001a">
@@ -113,7 +113,7 @@
             </tr>
             <tr class="ha-hide">
               <td style="vertical-align: middle;">
-                <label for="haName">HA Device Name:</label>
+                <label for="haName">设备名称:</label>
               </td>
               <td class="adaptiveTD">
                 <input class="fullTextField" type="text" id="haName" value="Pixel Art Kitchen">
@@ -121,7 +121,7 @@
             </tr>
             <tr>
               <td style="vertical-align: middle;">
-                <label for="curlUrl">Device IP/host name:</label>
+                <label for="curlUrl">设备 IP/主机名:</label>
               </td>
               <td class="adaptiveTD">
                 <input class="fullTextField" type="text" id="curlUrl" value="">
@@ -129,7 +129,7 @@
             </tr>
             <tr>
               <td style="vertical-align: middle;">
-                <label for="targetSegment">Target segment id:</label>
+                <label for="targetSegment">目标段id:</label>
               </td>
               <td class="adaptiveTD">
                 <input class="flxTFld" type="number" id="segID" value="0" min="0" max="63">
@@ -142,69 +142,69 @@
           <table  class= "scaleTableClass" id="scaleTable"  style="width: 100%; table-layout: fixed; align-content: center;">
             <tr>
               <td style="vertical-align: middle;">
-                <div id="scaleDiv">
-                  <svg id="scaleToggle" style="width:36px;height:36px; cursor: pointer;" viewBox="0 0 24 24" onclick="switchScale()">
+                < div id = “scaleDiv” >
+                  < svg id = "scaleToggle"  style = "宽度：36 px；高度：36 px；光标：指针；"  viewBox = “0 0 24 24”  onclick = “ switchScale （）” >
                     <path id="scaleTogglePath" fill="currentColor" d="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M7,15A3,3 0 0,1 4,12A3,3 0 0,1 7,9A3,3 0 0,1 10,12A3,3 0 0,1 7,15Z" />
                   </svg>
-                   &nbsp;Scale image
+                   &nbsp;缩放图像
                 </div>
               </td>
               <td style="vertical-align: middle;">
                 <div id="sizeDiv" style="display: none;">
                   <label for="sizeX">W : </label> &nbsp;<input class="sizeInputFields" type="number" id="sizeX" min="1" value="16">
                   &nbsp;&nbsp;&nbsp;
-                  <label for="sizeY">H : </label> &nbsp;<input class="sizeInputFields" type="number" id="sizeY" min="1" value="16">
-                </div>
-              </td>
-            </tr>
-          </table>
-        </p>
+                  <标签= “sizeY” > H：< /标签>  <输入类= “sizeInputFields”类型= “数字” id = “sizeY”最小值= “1”值= “16” >    
+                </div>​​
+              </TD>​​
+            </tr>​​
+          </表>
+        </p>​​
   
-        <p>
-          <label for="file-picker">
-            <div id="drop-zone">    
-                Drop image here <br>or <br>
-                Click to select a file
-            </div>
-          </label>
-        </p>
+        <p>​​
+          < = “文件选择器”的标签>
+            < div id = “拖放区” >  
+将图像              放置在此处<br>或<br>
+              单击以选择文件
+            </div>​​
+          </标签>
+        </p>​​
         
-        <p>
-          <input type="file" id="file-picker" style="display: none;">
-          <div style="width: 100%; text-align: center;">
-            <img id="preview" style="display: none; margin: 0 auto;">
-          </div>
+        <p>​​
+          <输入类型= “文件”  id = “文件选择器” 样式= “显示：无；” >
+          <div style =“宽度：100 ％；文本宽度：居中；”   >
+            < img id = “预览” 样式= “显示：无；边距：0 自动；”  >
+          </div>​​
           <!--
           <div id="submitConvertDiv" style="display: none;">
             <button id="convertbutton" class="buttonclass"></button>
           </div>
           -->
-          <div id="raw-image-container" style="display: none">
-            <img id="image" src="" alt="RawImage image">
-          </div>
+          <div id = “原始图像容器”  style = “显示：无”  >
+            < img id = "图片"   src = ""   alt = "RawImage 图片"  >
+          </div>​​
           
-        </p>
+        </p>​​
         
-        <div id="image-container" style="display: none;">
-          <div id="image-info" style="display: none"></div>
-          <textarea id="JSONled" readonly></textarea>
-        </div>
+        < div id = "image-container"   style = "显示：无;" >
+          < div id = “图像信息 ” style = “显示：无” > </div>
+          < textarea id = “ JSONled  ”只读> </textarea>
+        </div>​​
   
-        <div id="button-container" style="display: none;">
-          <button id="copyJSONledbutton" class="buttonclass"></button>
-          <div id="gap1" class="gap"></div>
-          <button id="sendJSONledbutton" class="buttonclass"></button>
-        </div>
-        <div>
-          <h3><div id="version">Version 1.0.8</div>&nbsp;-&nbsp; <a href="https://github.com/werkstrom/WLED-PixelArtConverter/blob/main/README.md" target="_blank">Help/About</a></h3>
-        </div>
-      </div>
-      <div id=bottom-part style="display: none" class=bottom-part></div>
-            <canvas id="pixelCanvas"></canvas>
-      </div>
-      <script src="statics.js" type="text/javascript"></script>
-      <script src="getPixelValues.js" type="text/javascript"></script>
-      <script src="boxdraw.js" type="text/javascript"></script>
-      <script src="pixart.js" type="text/javascript"></script>
+        < div id = "按钮容器"  style = "显示：无；" >
+          <按钮id = “copyJSONledbutton” 类= “buttonclass” > </按钮>
+          < div id = “间隙1” 类= “间隙” > </ div >
+          <按钮id = “sendJSONledbutton”  class = “buttonclass” > </按钮>
+        </div>​​
+        <div>​​
+          <h3> < div id = " version " >版本1.0.8 </div>​​ -   <a href =“https://github.com/werkstrom/WLED-PixelArtConverter/blob/main/README.md”target =“_blank”>帮助/关于</a> </h3>​​​​​​​​​​  
+        </div>​​
+      </div>​​
+      < div id = bottom-part  style = “显示：无” class  = bottom - part > </div>
+            < canvasid = “ pixelCanvas ” > </canvas>​
+      </div>​​
+      <脚本src = "statics.js"  type = "text/javascript" > </脚本>
+      <脚本src = “getPixelValues.js” 类型= “text/javascript” > </脚本>
+      <脚本src = "boxdraw.js"  type = "text/javascript" > </脚本>
+      <脚本src = “pixart.js” 类型= “文本/javascript” > </脚本>
   </body>
 </html>
