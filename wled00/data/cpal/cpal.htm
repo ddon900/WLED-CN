@@ -5,7 +5,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>WLED Custom Palette Editor</title>
+    <title>WLED 调色板</title>
     <script type="text/javascript">
       var d = document;
       function gId(e) {return d.getElementById(e);}
@@ -158,7 +158,7 @@
         <rect style="fill:#003FFF" x="18" y="10" width="4" height="8"/>
         <rect style="fill:#003FFF" x="22" y="6" width="8" height="4"/>
       </svg>
-      <span id="head">WLED Custom Palette Editor</span>
+      <span id="head">WLED 调色板编辑器</span>
     </h1>
   </div>
 
@@ -168,23 +168,23 @@
   <div style="display: flex; justify-content: center;">
     <div id="palettes" class="palettesMain">
         <div id="palTop" class="palTop">
-          Currently in use custom palettes
+          当前使用的自定义调色板
         </div>
     </div>
   </div>
 
   <div style="display: flex; justify-content: center;">
     <div id="info">
-      Click on the gradient editor to add new color slider, then the colored box below the slider to change its color. 
-      Click the red box below indicator (and confirm) to delete. 
-      Once finished, click the arrow icon to upload into the desired slot. 
-      To edit existing palette, click the pencil icon.
+      单击渐变编辑器添加新的颜色滑块，然后在滑块下方的彩色框中更改其颜色。
+      单击指示器下面的红色框(并确认)以删除。
+      完成后，单击箭头图标将其上传到所需的插槽中。
+      要编辑现有的调色板，请单击铅笔图标。
     </div>
   </div>
   <div style="display: flex; justify-content: center;">
     <div id="staticPalettes" class="palettesMain">
         <div id="statpalTop" class="palTop">
-          Available static palettes
+          可用的静态调色板
         </div>
     </div>
   </div>  
@@ -560,7 +560,7 @@
 
     const wledPalx = JSON.parse(localStorage.getItem('wledPalx'));
     if (!wledPalx) {
-      alert("The cache of palettes are missig from your browser. You should probably return to the main page and let it load properly for the palettes cache to regenerate before returning here.","Missing cached palettes!")
+      alert("调色板的缓存从浏览器中丢失。您可能应该返回到主页面，让它正确加载，以便在返回这里之前重新生成调色板缓存。","缺少缓存调色板！")
     } else {
       for (const key in wledPalx.p) {
         wledPalx.p[key].name = paletteName[key];
@@ -650,70 +650,70 @@
       gradientDiv.classList.add("paletteGradients");
       let gradientColors = "";
 
-      for (let j = 0; j < palette[thisKey].length; j += 2) {
-        const position = palette[thisKey][j];
-        if (typeof(palette[thisKey][j+1]) === "string") {
-          gradientColors += `#${palette[thisKey][j+1]} ${position/255*100}%, `;
-        } else {
-          const red = palette[thisKey][j + 1];
-          const green = palette[thisKey][j + 2];
-          const blue = palette[thisKey][j + 3];
-          gradientColors += `rgba(${red}, ${green}, ${blue}, 1) ${position/255*100}%, `;
-          j += 2;
-        }
-      }
+      for  (让 j = 0 ; j < 调色板[ thisKey ] . length ; j += 2 )  {
+        const 位置= 调色板[ thisKey ] [ j ] ;
+        if  ( typeof (调色板[ thisKey ] [ j+ 1 ] ) === "string" )  {if (typeof(palette[thisKey][j+1]) === "string") {
+          渐变颜色 += `#${palette[thisKey][j+1]} ${position/255*100}%, `;`#${palette[thisKey][j+1]} ${position/255*100}%, `;
+        } 别的 {} else {
+          const red = 调色板[thisKey][j + 1];const red = palette[thisKey][j + 1];
+          const green = 调色板[thisKey][j + 2];const green = palette[thisKey][j + 2];
+          const blue = 调色板[thisKey][j + 3];const blue = palette[thisKey][j + 3];
+          渐变颜色 += `rgba(${红色}, ${绿色}, ${蓝色}, 1) ${位置/255*100}%, `;`rgba(${red}, ${green}, ${blue}, 1) ${position/255*100}%, `;
+          j+=2；2;
+        }}
+      }}
 
-      gradientColors = gradientColors.slice(0, -2); // remove the last comma and space
-      gradientDiv.style.backgroundImage = `linear-gradient(to right, ${gradientColors})`;
-      paletteDiv.className = "palGradientParent";
-      if (thisKey == "palette") {
-        buttonsDiv.appendChild(sendSpan); //Only offer to send to custom palettes
-      } else{
-        editSpan.style.marginLeft = "25px";
+      渐变颜色 = 渐变颜色.slice(0, -2); // 删除最后一个逗号和空格slice(0, -2); // remove the last comma and space
+      gradientDiv.style.backgroundImage = `线性渐变（向右，${gradientColors}）`;style.backgroundImage = `linear-gradient(to right, ${gradientColors})`;
+      PaletteDiv.className = "palGradientParent";className = "palGradientParent";
+      if (thisKey == "调色板") {if (thisKey == "palette") {
+        ButtonDiv.appendChild(sendSpan); //仅提供发送到自定义调色板appendChild(sendSpan); //Only offer to send to custom palettes
+      } 别的{} else{
+        editSpan.style.marginLeft = "25px";风格。左边距= "25px" ;
       }
-      if (i!=cpalc) {
-        buttonsDiv.appendChild(editSpan); //Dont offer to edit the empty spot
+      if  ( i!=cpalc )  {
+        buttonsDiv.追加子级（ editSpan ）；//不提供编辑空位
       }
-      paletteDiv.appendChild(gradientDiv);
-      paletteDiv.appendChild(buttonsDiv);
-      if (thisKey == "palette") {
-        palettesDiv.appendChild(paletteDiv);
-      } else {
-        staticPalettesDiv.appendChild(paletteDiv);
+      paletteDiv.附加子（梯度Div ）；
+      paletteDiv.附加子（按钮Div ）；
+      if  ( thisKey == "调色板" )  {
+        palettesDiv.追加子项（ paletteDiv ）；
+      } 别的 {
+        staticPalettesDiv.追加子项（ paletteDiv ）；
       }
     }
   }
 
-  function loadForEdit(i) {
-    d.querySelectorAll('input[id^="colorPicker"]').forEach((input) => {
-      input.parentNode.removeChild(input);
-    });
-    d.querySelectorAll('span[id^="colorMarker"], span[id^="colorPickerMarker"], span[id^="deleteMarker"]').forEach((span) => {
-      span.parentNode.removeChild(span);
-    });
+  函数 loadForEdit ( i )  {
+    d. querySelectorAll  (  '输入[id^="colorPicker"]'  ) 。forEach  (  (输入) => {
+      input.父节点。删除子对象（输入）；
+    });} ) ;
+    d.querySelectorAll('span[id^="colorMarker"], span[id^="colorPickerMarker"], span[id^="deleteMarker"]').forEach((span) => {querySelectorAll('span[id^="colorMarker"], span[id^="colorPickerMarker"], span[id^="deleteMarker"]').forEach((span) => {
+      span.parentNode.removeChild(span);parentNode.removeChild(span);
+    });});
     
-    let colArray = JSON.parse(gId(`palette${i}`).getAttribute("data-colarray"));
+    let colArray = JSON.parse(gId(`palette${i}`).getAttribute("data-colarray"));let colArray = JSON.parse(gId(`palette${i}`).getAttribute("data-colarray"));
     
-    for (let j = 0; j < colArray.length; j += 2) {
-      const position = colArray[j];
-      let hex;
-      if (typeof(colArray[j+1]) === "string") {
-        hex = `#${colArray[j+1]}`;
-      } else {
-        const red = colArray[j + 1];
-        const green = colArray[j + 2];
-        const blue = colArray[j + 3];
-        hex = rgbToHex(red, green, blue);
-        j += 2;
-      }
-      addC(position, hex);
-      window.scroll(0, 0);
-    }
-  }
+    for (让 j = 0; j < colArray.length; j += 2) {for  (让 j = 0 ; j < colArray.length ; j += 2 )  {
+      const 位置= colArray [ j ] ;const position = colArray[j];
+      让十六进制；let hex;
+      if (typeof(colArray[j+1]) === "字符串") {if (typeof(colArray[j+1]) === "string") {
+        十六进制 = `#${colArray[j+1]}`;`#${colArray[j+1]}`;
+      } 别的 {} else {
+        const 红色 = colArray[j + 1];const red = colArray[j + 1];
+        const 绿色 = colArray[j + 2];const green = colArray[j + 2];
+        常量蓝色 = colArray[j + 3];const blue = colArray[j + 3];
+        hex = rgbToHex(红、绿、蓝);rgbToHex(red, green, blue);
+        j+=2；2;
+      }}
+      addC(位置，十六进制);addC(position, hex);
+      窗口.滚动(0, 0);scroll(0, 0);
+    }}
+  }}
 
-  function rgbToHex(r, g, b) {
-    const hex = ((r << 16) | (g << 8) | b).toString(16);
-    return "#" + "0".repeat(6 - hex.length) + hex;
-  }
-</script>
-</html>
+  函数 rgbToHex(r, g, b) {function rgbToHex(r, g, b) {
+    const 十六进制 = ((r << 16) | (g << 8) | b).toString(16);const hex = ((r << 16) | (g << 8) | b).toString(16);
+    return "#" + "0".repeat(6 - hex.length) + hex;return "#" + "0".repeat(6 - hex.length) + hex;
+  }}
+</脚本>
+</html>​​
